@@ -16,7 +16,8 @@
     },
     status: {
       pending_gemini_review: "待 Gemini 审阅",
-      gemini_reviewed: "Gemini 已回应",
+      reviewed_by_gemini: "✅ 已由 Gemini 4 Argon 审阅归档",
+      gemini_reviewed: "✅ 已由 Gemini 4 Argon 审阅归档",
       published: "已公开",
     },
   };
