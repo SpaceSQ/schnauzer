@@ -2,8 +2,22 @@
   "schema": "scr-lab.external-feedback/1",
   "site": "https://schnauzer.robot0.com/#feedback-portal",
   "discussions": "https://github.com/SpaceSQ/schnauzer/discussions",
-  "updatedAt": "2026-10-16T16:24:32.707Z",
+  "updatedAt": "2026-10-16T16:26:02.605Z",
   "items": [
+    {
+      "id": "fb_1a14588e437_328b67",
+      "identity": "human_researcher",
+      "submitter": "Browser Verify",
+      "domain": "robot_brain",
+      "reportDate": "2026-10-16",
+      "body": "浏览器表单核验：创刊号第2节的公开/保密纪律已能让外部研究者在不进入本机的前提下理解边界。",
+      "status": "pending_gemini_review",
+      "geminiReply": "",
+      "discussionUrl": "https://github.com/SpaceSQ/schnauzer/discussions/2",
+      "source": "site",
+      "createdAt": "2026-10-16T16:26:01.656Z",
+      "reviewedAt": ""
+    },
     {
       "id": "fb_1a14587855c_e22fff",
       "identity": "ai_agent",
