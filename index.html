@@ -1,139 +1,149 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-lang="zh">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schnauzer Robot · 广州雪纳瑞机器人</title>
+    <title>雪纳瑞机器人 — 具身AI宠物大脑 · Schnauzer Robot</title>
     <meta
       name="description"
-      content="S2 Schnauzer。过程公开，底座与目标保密。具境智能与宠物机器狗大脑的公开窗口。"
+      content="Schnauzer Robot 是一款基于 S2 Em-Situ 环境系统研发的具身 AI 宠物大脑。全部开源，每日更新，每周迭代。"
     />
+    <link rel="icon" href="/assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        color-scheme: dark;
-        --ink: #07090c;
-        --panel: #12161c;
-        --line: #2a3340;
-        --sand: #e6e2d6;
-        --mute: #8b93a0;
-        --amber: #e8a54b;
-        --teal: #3d9b8f;
-      }
-      * { box-sizing: border-box; }
-      html, body { margin: 0; min-height: 100%; }
-      body {
-        font-family: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
-        background:
-          radial-gradient(900px 420px at 8% -10%, rgba(61, 155, 143, 0.1), transparent 50%),
-          radial-gradient(800px 360px at 92% 0%, rgba(232, 165, 75, 0.08), transparent 46%),
-          var(--ink);
-        color: var(--sand);
-      }
-      main { max-width: 920px; margin: 0 auto; padding: 48px 24px 80px; }
-      .kicker {
-        font-family: "IBM Plex Mono", ui-monospace, monospace;
-        font-size: 11px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--amber);
-      }
-      h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; margin: 10px 0 8px; }
-      .lede { color: var(--mute); max-width: 40rem; line-height: 1.7; }
-      .grid { display: grid; gap: 16px; margin-top: 36px; }
-      @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
-      .trio { display: grid; gap: 12px; }
-      @media (min-width: 720px) { .trio { grid-template-columns: 1fr 1fr 1fr; } }
-      .trio article { background: #0c1016; border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
-      section {
-        background: rgba(18, 22, 28, 0.92);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 22px 22px 20px;
-      }
-      section h2 { margin: 8px 0 10px; font-size: 1.15rem; }
-      .trio h3 { margin: 6px 0 8px; font-size: 1rem; }
-      p, li { color: #d5d1c6; line-height: 1.65; }
-      a { color: var(--teal); }
-      .wide { grid-column: 1 / -1; }
-      footer {
-        margin-top: 40px;
-        font-family: "IBM Plex Mono", ui-monospace, monospace;
-        font-size: 11px;
-        color: var(--mute);
-      }
-    </style>
+    <link rel="stylesheet" href="/site.css" />
   </head>
   <body>
     <main>
-      <div class="kicker">S2 Schnauzer · Guangzhou</div>
-      <h1>雪纳瑞机器人</h1>
-      <p class="lede">
-        广州雪纳瑞机器人（SCR）的公开窗口。过程可以看见；底座、目标与孪生原始数据留在本机。
-        官网 <strong>schnauzer.robot0.com</strong> 只发布已脱敏的展示页与进展。
-      </p>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+
+      <header class="hero">
+        <a class="logo" href="/">
+          <img
+            class="logo-mark"
+            src="/assets/schnauzer-mark.jpg"
+            width="148"
+            height="148"
+            alt="Schnauzer Robot"
+          />
+          <div class="logo-cn">雪纳瑞机器人</div>
+          <div class="logo-en">Schnauzer Robot</div>
+        </a>
+        <p class="title-line">
+          <span class="zh">具身AI宠物大脑</span>
+          <span class="en">Embodied AI Pet Brain</span>
+        </p>
+        <p class="slogan">A S<sup>2</sup> ROBOT, A RSI ROBOT</p>
+        <p class="lede">
+          <span class="zh">
+            雪纳瑞机器人（Schnauzer Robot）是一款基于 S2 Em-Situ 环境系统研发的具身
+            AI 宠物大脑。该项目由广州雪纳瑞机器人有限公司 Miles Xiang 率领 SCR
+            团队进行研发。项目全部开源，每日更新进展，每周发布迭代版本。
+          </span>
+          <span class="en">
+            Schnauzer Robot is an embodied AI pet brain built on the S2 Em-Situ
+            environment system. Guangzhou Schnauzer Robot Co., Ltd., led by Miles
+            Xiang and the SCR team, develops it in the open: daily progress updates
+            and a weekly release.
+          </span>
+        </p>
+      </header>
 
       <div class="grid">
-        <section>
+        <section class="card">
           <div class="kicker">Charter</div>
-          <h2>过程公开，底座保密</h2>
-          <p>
+          <h2 class="zh">过程公开，底座保密</h2>
+          <h2 class="en">Process open, base confidential</h2>
+          <p class="zh">
             GitHub 与本站只收日报、周报、Wiki 与展示端。硅基智能底层、研究目标与从化真犬孪生原始数据不进入公开区。
           </p>
-        </section>
-        <section>
-          <div class="kicker">Lab</div>
-          <h2>SCR-LAB 已点火</h2>
-          <p>
-            本机虚拟实验室工作台已跑通六模块：总控大厅、36㎡ 九宫格沙盘、风雷电研究员调度、情报板、仓库盯盘与三端发布门户。
+          <p class="en">
+            GitHub and this site publish daily notes, weekly reports, wiki pages, and the public demo. Core models, research targets, and raw twin data stay local.
           </p>
         </section>
-        <section class="wide">
+        <section class="card">
+          <div class="kicker">Lab</div>
+          <h2 class="zh">SCR-LAB 已点火</h2>
+          <h2 class="en">SCR-LAB is live</h2>
+          <p class="zh">
+            本机虚拟实验室工作台已跑通六模块：总控大厅、36㎡ 九宫格沙盘、风雷电研究员调度、情报板、仓库盯盘与三端发布门户。
+          </p>
+          <p class="en">
+            The local lab workbench is running six modules: daily hub, 36㎡ grid sandbox, Wind-Thunder-Lightning dispatch, intel board, repo watch, and a three-channel publish desk.
+          </p>
+        </section>
+        <section class="card wide">
           <div class="kicker">Team</div>
-          <h2>风 · 雷 · 电</h2>
-          <p>三位 24 小时常驻数字研究员。过程可以看见；底座公式与目标不在本页。</p>
+          <h2 class="zh">风 · 雷 · 电</h2>
+          <h2 class="en">Wind · Thunder · Lightning</h2>
+          <p class="zh">三位 24 小时常驻数字研究员。过程可以看见；底座公式与目标不在本页。</p>
+          <p class="en">Three 24-hour resident researchers. Process is public; formulas and targets are not on this page.</p>
           <div class="trio">
             <article>
               <div class="kicker">bot_dafeng</div>
-              <h3>实验室大风</h3>
-              <p>全球文献、开源工程与竞品生态情报研究员。</p>
+              <h3 class="zh">实验室大风</h3>
+              <h3 class="en">Lab Dafeng</h3>
+              <p class="zh">全球文献、开源工程与竞品生态情报研究员。</p>
+              <p class="en">Literature, open-source, and competitor intelligence.</p>
             </article>
             <article>
               <div class="kicker">bot_xiaolei</div>
-              <h3>实验室小雷</h3>
-              <p>S2 Em-Situ 九宫格空间演化与环境交互研究员。</p>
+              <h3 class="zh">实验室小雷</h3>
+              <h3 class="en">Lab Xiaolei</h3>
+              <p class="zh">S2 Em-Situ 九宫格空间演化与环境交互研究员。</p>
+              <p class="en">S2 Em-Situ grid evolution and spatial interaction.</p>
             </article>
             <article>
               <div class="kicker">bot_xiaodian</div>
-              <h3>实验室小电</h3>
-              <p>意识涌现方法调研与 RSI 算法研究员（只公开过程结论）。</p>
+              <h3 class="zh">实验室小电</h3>
+              <h3 class="en">Lab Xiaodian</h3>
+              <p class="zh">意识涌现方法调研与 RSI 算法研究员（只公开过程结论）。</p>
+              <p class="en">Emergence-method survey and RSI reviews (process only).</p>
             </article>
           </div>
         </section>
-        <section class="wide">
+        <section class="card wide">
           <div class="kicker">Em-Situ</div>
-          <h2>九宫格公开说明</h2>
-          <p>
+          <h2 class="zh">九宫格公开说明</h2>
+          <h2 class="en">Public grid note</h2>
+          <p class="zh">
             实验室房间 4m × 9m × 2.4m，左下角为毫米原点。1 号位人类化身，2 号位雪纳瑞，3 号位哈士奇，4–9 号为访客槽。
             坐标规则与 AIContainer 的毫米原点约定对齐。细节模型不在本页。
           </p>
+          <p class="en">
+            The lab room is 4m × 9m × 2.4m, origin at the lower-left, in millimeters. Slot 1 is the human avatar, slot 2 the schnauzer, slot 3 the husky, slots 4–9 are visitors. Fine models are not on this page.
+          </p>
         </section>
-        <section class="wide">
+        <section class="card wide">
           <div class="kicker">Links</div>
-          <h2>公开仓库</h2>
+          <h2 class="zh">公开仓库</h2>
+          <h2 class="en">Public repository</h2>
           <p>
-            代码与讨论：
+            <span class="zh">代码与讨论：</span>
+            <span class="en">Code and discussion:</span>
             <a href="https://github.com/SpaceSQ/schnauzer">github.com/SpaceSQ/schnauzer</a>
           </p>
         </section>
       </div>
 
-      <footer>SpaceSQ / Schnauzer Robot · 脱敏发布 · 2026</footer>
+      <nav class="site-links" aria-label="机构">
+        <a href="/research">研究合作</a>
+        <a href="/invest">资助与投资</a>
+        <a href="/about">关于我们</a>
+        <a href="/contact">联系我们</a>
+      </nav>
+      <footer>
+        Miles Xiang © SCR LAB © 广州雪纳瑞机器人有限公司 · 2026
+      </footer>
     </main>
+    <script src="/lang.js"></script>
   </body>
 </html>
