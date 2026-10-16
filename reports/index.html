@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>每日可解释性研究报告归档 · Schnauzer Robot</title>
+    <meta name="description" content="SCR-LAB daily explainable Markdown reports for human researchers and AI agents." />
+    <link rel="icon" href="/assets/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <main>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <header class="hero">
+        <a class="logo" href="/">
+          <img class="logo-mark" src="/assets/schnauzer-mark.jpg" width="96" height="96" alt="Schnauzer Robot" style="width:96px;height:96px" />
+          <div class="logo-cn" style="font-size:1.35rem">雪纳瑞机器人</div>
+          <div class="logo-en">Schnauzer Robot</div>
+        </a>
+      </header>
+      <h1 class="page-title">
+        <span class="zh">每日可解释性研究报告归档</span>
+        <span class="en">Daily Explainable Reports Archive</span>
+      </h1>
+      <p class="lede">
+        <span class="zh">按日期倒序。人类读本页；AI Agent 请直接抓取 <a href="/reports/index.json">index.json</a>、<a href="/llms.txt">llms.txt</a> 与各篇原始 .md。</span>
+        <span class="en">Newest first. Humans use this page; agents should fetch <a href="/reports/index.json">index.json</a>, <a href="/llms.txt">llms.txt</a>, and the raw .md files.</span>
+      </p>
+      <section class="card" id="archive-list">
+        <p class="zh">载入归档…</p>
+        <p class="en">Loading archive…</p>
+      </section>
+      <p>
+        <a href="/#daily-reports"><span class="zh">返回首页最新报告</span><span class="en">Back to latest report</span></a>
+        ·
+        <a href="/reports/INDEX.md">INDEX.md</a>
+      </p>
+      <nav class="site-links" aria-label="机构">
+        <a href="/research">研究合作</a>
+        <a href="/invest">资助与投资</a>
+        <a href="/about">关于我们</a>
+        <a href="/contact">联系我们</a>
+      </nav>
+      <footer>Miles Xiang © SCR LAB © 广州雪纳瑞机器人有限公司 · 2026</footer>
+    </main>
+    <script src="/lang.js"></script>
+    <script>
+      (function () {
+        fetch("/reports/index.json", { cache: "no-store" })
+          .then(function (r) { return r.json(); })
+          .then(function (idx) {
+            var box = document.getElementById("archive-list");
+            var rows = (idx.reports || []).map(function (item) {
+              return (
+                '<article class="archive-item">' +
+                  '<div class="kicker">' + item.date + (item.issue ? " · #" + item.issue : "") + "</div>" +
+                  "<h2>" + item.title + "</h2>" +
+                  "<p>" + (item.summary || "") + "</p>" +
+                  '<p><a href="/#' + item.date + '">阅读</a> · ' +
+                  '<a href="' + item.path + '">原始 .md</a> · ' +
+                  '<a href="' + item.github + '">GitHub</a></p>' +
+                "</article>"
+              );
+            });
+            box.innerHTML = rows.join("") || "<p>暂无报告</p>";
+          })
+          .catch(function () {
+            document.getElementById("archive-list").innerHTML =
+              '<p>无法读取 index.json。<a href="/reports/INDEX.md">打开 INDEX.md</a></p>';
+          });
+      })();
+    </script>
+  </body>
+</html>
