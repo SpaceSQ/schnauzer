@@ -28,7 +28,25 @@ function clean(s, max) {
     .slice(0, max);
 }
 
+function isPendingStatus(status) {
+  return status === "pending_gemini_review";
+}
+
+function statusRank(status) {
+  if (status === "published") return 3;
+  if (status === "reviewed_by_gemini" || status === "gemini_reviewed") return 2;
+  return 0;
+}
+
 function normalize(row) {
+  const rawStatus = String(row.status || "pending_gemini_review");
+  const status =
+    rawStatus === "reviewed_by_gemini" ||
+    rawStatus === "gemini_reviewed" ||
+    rawStatus === "published" ||
+    rawStatus === "pending_gemini_review"
+      ? rawStatus
+      : "pending_gemini_review";
   return {
     id: row.id,
     identity: row.identity,
@@ -36,7 +54,7 @@ function normalize(row) {
     domain: row.domain,
     reportDate: row.reportDate || row.report_date || "",
     body: row.body || "",
-    status: row.status || "pending_gemini_review",
+    status,
     geminiReply: row.geminiReply || row.gemini_reply || "",
     discussionUrl: row.discussionUrl || row.discussion_url || "",
     source: row.source || "site",
@@ -45,18 +63,42 @@ function normalize(row) {
   };
 }
 
+function fingerprint(row) {
+  const disc = String(row.discussionUrl || "").replace(/\/+$/, "");
+  if (disc && !/\/discussions$/i.test(disc)) return `disc:${disc}`;
+  return `sb:${String(row.submitter || "").trim()}|${String(row.body || "").replace(/\s+/g, " ").trim()}`;
+}
+
+function prefer(a, b) {
+  const keep = statusRank(b.status) >= statusRank(a.status) ? b : a;
+  const other = keep === b ? a : b;
+  return {
+    ...other,
+    ...keep,
+    status: statusRank(keep.status) >= statusRank(other.status) ? keep.status : other.status,
+    geminiReply: keep.geminiReply || other.geminiReply,
+    discussionUrl: keep.discussionUrl || other.discussionUrl,
+    reviewedAt: keep.reviewedAt || other.reviewedAt,
+  };
+}
+
 function mergeItems(lists) {
-  const map = new Map();
+  const byId = new Map();
   for (const list of lists) {
     for (const raw of list || []) {
       const row = normalize(raw);
       if (!row.id) continue;
-      const prev = map.get(row.id);
-      if (!prev) map.set(row.id, row);
-      else if ((row.reviewedAt || row.geminiReply) && !prev.geminiReply) map.set(row.id, { ...prev, ...row });
+      const prev = byId.get(row.id);
+      byId.set(row.id, prev ? prefer(prev, row) : row);
     }
   }
-  return [...map.values()].sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+  const byFp = new Map();
+  for (const row of byId.values()) {
+    const fp = fingerprint(row);
+    const prev = byFp.get(fp);
+    byFp.set(fp, prev ? prefer(prev, row) : row);
+  }
+  return [...byFp.values()].sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
 }
 
 async function readJson(url, headers) {
@@ -207,6 +249,28 @@ async function supabaseInsert(row) {
   return rows[0] ? normalize(rows[0]) : null;
 }
 
+async function supabasePatchReviewed(row) {
+  const conf = supabaseConf();
+  if (!conf) return false;
+  const submitter = String(row.submitter || "").replace(/,/g, " ");
+  const filter = `submitter=eq.${encodeURIComponent(submitter)}`;
+  const res = await fetch(`${conf.url}/rest/v1/external_feedback?${filter}`, {
+    method: "PATCH",
+    headers: {
+      apikey: conf.key,
+      Authorization: `Bearer ${conf.key}`,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify({
+      status: row.status,
+      gemini_reply: row.geminiReply || null,
+      reviewed_at: row.reviewedAt || new Date().toISOString(),
+    }),
+  });
+  return res.ok;
+}
+
 function reviewAuthorized(req) {
   const expected = process.env.SCR_REVIEW_KEY || process.env.GITHUB_TOKEN;
   if (!expected) return false;
@@ -228,7 +292,7 @@ module.exports = async function handler(req, res) {
       const items = mergeItems([github.items, cloud]);
       res.status(200).json({
         ok: true,
-        pendingCount: items.filter((x) => x.status === "pending_gemini_review").length,
+        pendingCount: items.filter((x) => isPendingStatus(x.status)).length,
         items,
       });
       return;
@@ -271,17 +335,25 @@ module.exports = async function handler(req, res) {
       const github = await readGithubWall();
       const now = new Date().toISOString();
       const items = github.items.map((row) => {
-        const hit = (body.ids || []).includes(row.id) || body.id === row.id;
+        const hit =
+          (body.ids || []).includes(row.id) ||
+          body.id === row.id ||
+          (body.submitters || []).includes(row.submitter);
         if (!hit) return row;
         return {
           ...row,
-          status: body.status || "gemini_reviewed",
+          status: body.status || "reviewed_by_gemini",
           geminiReply: clean(body.geminiReply || body.reply || row.geminiReply, 8000),
           reviewedAt: now,
         };
       });
       await writeGithubWall(items, github.sha);
-      res.status(200).json({ ok: true, items });
+      await Promise.all(
+        items
+          .filter((row) => !isPendingStatus(row.status))
+          .map((row) => supabasePatchReviewed(row).catch(() => false)),
+      );
+      res.status(200).json({ ok: true, items, pendingCount: items.filter((x) => isPendingStatus(x.status)).length });
       return;
     }
 
