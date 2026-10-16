@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>资助与投资 · 雪纳瑞机器人</title>
+    <meta name="description" content="雪纳瑞机器人寻求政府 AI 产业投资基金、家庭基金的投资，以及来自 AI、机器人、未来科技领域的公益基金的资助。" />
     <link rel="icon" href="/assets/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,15 +24,45 @@
           <div class="logo-en">Schnauzer Robot</div>
         </a>
       </header>
-      <h1 class="page-title"><span class="zh">资助与投资</span><span class="en">Funding &amp; investment</span></h1>
+      <h1 class="page-title">
+        <span class="zh">资助与投资</span>
+        <span class="en">Funding</span>
+      </h1>
       <section class="card">
-        <p class="zh">
-          雪纳瑞机器人由广州雪纳瑞机器人有限公司研发，日常进展全部开源。若希望资助开源迭代或洽谈投资，请通过「联系我们」到达 SCR 团队。本页不发布估值、融资进度或保密目标。
-        </p>
-        <p class="en">
-          Schnauzer Robot is developed by Guangzhou Schnauzer Robot Co., Ltd. Day-to-day progress is open. For sponsorship of the public track or investment talks, use the contact page. Valuation, fundraising status, and confidential targets are not published here.
-        </p>
-        <p><a href="/contact">联系我们 / Contact</a></p>
+        <p>雪纳瑞机器人寻求政府 AI 产业投资基金、家庭基金的投资，以及来自 AI、机器人、未来科技领域的公益基金的资助。</p>
+        <h2 class="form-title">资助与投资反馈表</h2>
+        <form class="feedback-form" data-mailto="xiangmiles@gmail.com" data-subject="资助与投资">
+          <label>
+            机构
+            <input name="机构" required maxlength="120" />
+          </label>
+          <label>
+            联系人
+            <input name="联系人" required maxlength="80" />
+          </label>
+          <label class="full">
+            邮箱
+            <input name="邮箱" type="email" required maxlength="120" />
+          </label>
+          <label class="full">
+            基金来源
+            <select name="基金来源" required>
+              <option value="" disabled selected>请选择</option>
+              <option value="政府 AI 产业投资基金">1、政府 AI 产业投资基金</option>
+              <option value="家庭基金">2、家庭基金</option>
+              <option value="公益基金">3、公益基金</option>
+              <option value="其它基金">4、其它基金</option>
+            </select>
+          </label>
+          <label class="full">
+            说明
+            <textarea name="说明" rows="6" maxlength="4000"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">发送到 xiangmiles@gmail.com</button>
+            <span class="form-status"></span>
+          </div>
+        </form>
       </section>
       <nav class="site-links" aria-label="机构">
         <a href="/research">研究合作</a>
@@ -42,5 +73,6 @@
       <footer>Miles Xiang © SCR LAB © 广州雪纳瑞机器人有限公司 · 2026</footer>
     </main>
     <script src="/lang.js"></script>
+    <script src="/mail-form.js"></script>
   </body>
 </html>
