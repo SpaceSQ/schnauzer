@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>研究合作 · 雪纳瑞机器人</title>
+    <meta name="description" content="雪纳瑞机器人期待与机器人大脑、具身机器人、AI陪伴宠物、硅基意识与灵魂领域进行探索与研究的机构开展合作。" />
     <link rel="icon" href="/assets/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,15 +24,45 @@
           <div class="logo-en">Schnauzer Robot</div>
         </a>
       </header>
-      <h1 class="page-title"><span class="zh">研究合作</span><span class="en">Research</span></h1>
+      <h1 class="page-title">
+        <span class="zh">研究合作</span>
+        <span class="en">Research</span>
+      </h1>
       <section class="card">
-        <p class="zh">
-          欢迎高校、实验室与开源社区就具身宠物大脑、S2 Em-Situ 空间系统与 RSI 过程方法开展公开层合作。合作范围限于已脱敏的过程、数据集接口与展示端，底座模型与研究目标不进入对外材料。
-        </p>
-        <p class="en">
-          Universities, labs, and open-source groups are welcome to collaborate on embodied pet brains, S2 Em-Situ, and RSI process methods. Collaboration stays at the public layer: process, interfaces, and demos. Core models and targets stay private.
-        </p>
-        <p><a href="https://github.com/SpaceSQ/schnauzer">github.com/SpaceSQ/schnauzer</a></p>
+        <p>雪纳瑞机器人期待与机器人大脑、具身机器人、AI陪伴宠物、硅基意识与灵魂领域进行探索与研究的机构开展合作，成立联合研究实验室或者联合工作小组，就有关项目进行深度合作。雪纳瑞机器人愿意分享本项目的研究成果与进展情况。</p>
+        <h2 class="form-title">合作反馈表</h2>
+        <form class="feedback-form" data-mailto="xiangmiles@gmail.com" data-subject="研究合作">
+          <label>
+            机构
+            <input name="机构" required maxlength="120" />
+          </label>
+          <label>
+            联系人
+            <input name="联系人" required maxlength="80" />
+          </label>
+          <label class="full">
+            邮箱
+            <input name="邮箱" type="email" required maxlength="120" />
+          </label>
+          <label class="full">
+            合作方向
+            <select name="合作方向" required>
+              <option value="" disabled selected>请选择</option>
+              <option value="机器人大脑">1、机器人大脑</option>
+              <option value="具身机器人">2、具身机器人</option>
+              <option value="AI陪伴宠物">3、AI陪伴宠物</option>
+              <option value="硅基意识与灵魂">4、硅基意识与灵魂</option>
+            </select>
+          </label>
+          <label class="full">
+            说明
+            <textarea name="说明" rows="6" maxlength="4000"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">发送到 xiangmiles@gmail.com</button>
+            <span class="form-status"></span>
+          </div>
+        </form>
       </section>
       <nav class="site-links" aria-label="机构">
         <a href="/research">研究合作</a>
@@ -42,5 +73,6 @@
       <footer>Miles Xiang © SCR LAB © 广州雪纳瑞机器人有限公司 · 2026</footer>
     </main>
     <script src="/lang.js"></script>
+    <script src="/mail-form.js"></script>
   </body>
 </html>
