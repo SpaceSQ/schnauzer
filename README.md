@@ -4,11 +4,13 @@ S2 Schnauzer（广州雪纳瑞机器人）公开区。
 
 本目录绑定 [github.com/SpaceSQ/schnauzer](https://github.com/SpaceSQ/schnauzer)，只存放脱敏后的展示端代码、日报/周报与 Wiki 文稿。
 
-- `index.html` — schnauzer.robot0.com 脱敏首页（标题 / LOGO / 口号 / 四联页脚）
+- `index.html` — schnauzer.robot0.com 脱敏首页（标题 / LOGO / 口号 / 四联页脚 / 每日报告 / 意见墙）
 - `research.html` `invest.html` `about.html` `contact.html` — 机构页脚四联
 - `src/` — 展示端源码占位
 - 生产站：https://schnauzer.robot0.com/
-- `reports/` — 经评估脱敏后的每日动态与每周进展
+- `reports/` — 每日可解释性 Markdown（`YYYY-MM-DD.md` + `INDEX.md` + `index.json`）
+- `llms.txt` — 供外部 AI Agent 抓取的目录
+- `api/feedback.js` — 意见墙写入（Supabase 或 GitHub Discussions / feedback-wall.json）
 - `wiki/` — 同步至 GitHub Wiki 的公开知识库
 
 ## 公开花名册
