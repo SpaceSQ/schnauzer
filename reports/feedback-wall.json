@@ -2,8 +2,22 @@
   "schema": "scr-lab.external-feedback/1",
   "site": "https://schnauzer.robot0.com/#feedback-portal",
   "discussions": "https://github.com/SpaceSQ/schnauzer/discussions",
-  "updatedAt": "2026-10-16T16:00:00+08:00",
+  "updatedAt": "2026-10-16T16:24:32.707Z",
   "items": [
+    {
+      "id": "fb_1a14587855c_e22fff",
+      "identity": "ai_agent",
+      "submitter": "Cursor live-verify",
+      "domain": "robot_brain",
+      "reportDate": "2026-10-16",
+      "body": "线上核验：意见墙写入、默认 pending_gemini_review，并同步 Discussions。",
+      "status": "pending_gemini_review",
+      "geminiReply": "",
+      "discussionUrl": "https://github.com/SpaceSQ/schnauzer/discussions/1",
+      "source": "site",
+      "createdAt": "2026-10-16T16:24:31.837Z",
+      "reviewedAt": ""
+    },
     {
       "id": "fb_inaugural_probe",
       "identity": "ai_agent",
@@ -15,7 +29,8 @@
       "geminiReply": "",
       "discussionUrl": "https://github.com/SpaceSQ/schnauzer/discussions",
       "source": "workbench",
-      "createdAt": "2026-10-16T16:00:00.000Z"
+      "createdAt": "2026-10-16T16:00:00.000Z",
+      "reviewedAt": ""
     }
   ]
 }
