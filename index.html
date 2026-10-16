@@ -47,6 +47,9 @@
       .lede { color: var(--mute); max-width: 40rem; line-height: 1.7; }
       .grid { display: grid; gap: 16px; margin-top: 36px; }
       @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+      .trio { display: grid; gap: 12px; }
+      @media (min-width: 720px) { .trio { grid-template-columns: 1fr 1fr 1fr; } }
+      .trio article { background: #0c1016; border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
       section {
         background: rgba(18, 22, 28, 0.92);
         border: 1px solid var(--line);
@@ -54,6 +57,7 @@
         padding: 22px 22px 20px;
       }
       section h2 { margin: 8px 0 10px; font-size: 1.15rem; }
+      .trio h3 { margin: 6px 0 8px; font-size: 1rem; }
       p, li { color: #d5d1c6; line-height: 1.65; }
       a { color: var(--teal); }
       .wide { grid-column: 1 / -1; }
@@ -86,8 +90,30 @@
           <div class="kicker">Lab</div>
           <h2>SCR-LAB 已点火</h2>
           <p>
-            本机虚拟实验室工作台已跑通六模块：总控大厅、36㎡ 九宫格沙盘、Grok ×3 调度、情报板、仓库盯盘与三端发布门户。
+            本机虚拟实验室工作台已跑通六模块：总控大厅、36㎡ 九宫格沙盘、风雷电研究员调度、情报板、仓库盯盘与三端发布门户。
           </p>
+        </section>
+        <section class="wide">
+          <div class="kicker">Team</div>
+          <h2>风 · 雷 · 电</h2>
+          <p>三位 24 小时常驻数字研究员。过程可以看见；底座公式与目标不在本页。</p>
+          <div class="trio">
+            <article>
+              <div class="kicker">bot_dafeng</div>
+              <h3>实验室大风</h3>
+              <p>全球文献、开源工程与竞品生态情报研究员。</p>
+            </article>
+            <article>
+              <div class="kicker">bot_xiaolei</div>
+              <h3>实验室小雷</h3>
+              <p>S2 Em-Situ 九宫格空间演化与环境交互研究员。</p>
+            </article>
+            <article>
+              <div class="kicker">bot_xiaodian</div>
+              <h3>实验室小电</h3>
+              <p>意识涌现方法调研与 RSI 算法研究员（只公开过程结论）。</p>
+            </article>
+          </div>
         </section>
         <section class="wide">
           <div class="kicker">Em-Situ</div>
