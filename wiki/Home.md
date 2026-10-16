@@ -8,7 +8,7 @@
 |---|---|
 | [[Charter]] | 公开 / 保密边界 |
 | [[Em-Situ-Grid]] | 36㎡ 九宫格公开说明 |
-| [[Bots]] | 三个 Grok Bot 的公开职责 |
+| [[Bots]] | 实验室大风 / 小雷 / 小电 公开职责 |
 | [[Publish]] | 官网、GitHub、新闻三端发布 |
 
 官网：https://schnauzer.robot0.com/  
