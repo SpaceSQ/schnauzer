@@ -1,0 +1,26 @@
+{
+  "schema": "scr-lab.daily-report/1",
+  "project": "Schnauzer Robot",
+  "lab": "SCR-LAB",
+  "site": "https://schnauzer.robot0.com/",
+  "repo": "https://github.com/SpaceSQ/schnauzer",
+  "llms": "https://schnauzer.robot0.com/llms.txt",
+  "feedback": "https://schnauzer.robot0.com/#feedback-portal",
+  "discussions": "https://github.com/SpaceSQ/schnauzer/discussions",
+  "confidentiality": "process-open-base-secret",
+  "latest": "2026-10-16",
+  "generatedAt": "2026-10-16T16:00:00+08:00",
+  "reports": [
+    {
+      "date": "2026-10-16",
+      "issue": 1,
+      "title": "创刊号：把具身宠物大脑做成每日可解释过程",
+      "summary": "建立每日 .md 报告体例、公开/保密纪律，以及外部意见进入次日第 4 节的闭环。",
+      "topics": ["embodied-ai", "pet-brain", "em-situ", "explainability", "open-process"],
+      "path": "/reports/2026-10-16.md",
+      "url": "https://schnauzer.robot0.com/reports/2026-10-16.md",
+      "github": "https://github.com/SpaceSQ/schnauzer/blob/main/reports/2026-10-16.md",
+      "lang": ["zh-CN", "en"]
+    }
+  ]
+}
