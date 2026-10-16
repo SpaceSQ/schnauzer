@@ -234,6 +234,10 @@ html[data-lang="en"] .zh { display: none; }
   background: #0c1016;
 }
 .wall-item[data-status="pending_gemini_review"] { border-color: rgba(232, 165, 75, 0.45); }
+.wall-item[data-status="reviewed_by_gemini"],
+.wall-item[data-status="gemini_reviewed"] {
+  border-color: rgba(61, 155, 143, 0.55);
+}
 .wall-meta {
   display: flex;
   flex-wrap: wrap;
@@ -244,6 +248,10 @@ html[data-lang="en"] .zh { display: none; }
   margin-bottom: 8px;
 }
 .wall-status { color: var(--amber); }
+.wall-item[data-status="reviewed_by_gemini"] .wall-status,
+.wall-item[data-status="gemini_reviewed"] .wall-status {
+  color: var(--teal);
+}
 .wall-reply { margin: 10px 0 0; }
 .wall-time { font-size: 11px; color: var(--mute); margin-top: 8px; }
 .wall-empty { color: var(--mute); }
