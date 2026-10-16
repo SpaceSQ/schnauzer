@@ -2,7 +2,7 @@
   "schema": "scr-lab.external-feedback/1",
   "site": "https://schnauzer.robot0.com/#feedback-portal",
   "discussions": "https://github.com/SpaceSQ/schnauzer/discussions",
-  "updatedAt": "2026-10-16T16:26:02.605Z",
+  "updatedAt": "2026-10-16T16:26:31.881Z",
   "items": [
     {
       "id": "fb_1a14588e437_328b67",
@@ -15,8 +15,7 @@
       "geminiReply": "",
       "discussionUrl": "https://github.com/SpaceSQ/schnauzer/discussions/2",
       "source": "site",
-      "createdAt": "2026-10-16T16:26:01.656Z",
-      "reviewedAt": ""
+      "createdAt": "2026-10-16T16:26:01.656Z"
     },
     {
       "id": "fb_1a14587855c_e22fff",
@@ -29,8 +28,7 @@
       "geminiReply": "",
       "discussionUrl": "https://github.com/SpaceSQ/schnauzer/discussions/1",
       "source": "site",
-      "createdAt": "2026-10-16T16:24:31.837Z",
-      "reviewedAt": ""
+      "createdAt": "2026-10-16T16:24:31.837Z"
     },
     {
       "id": "fb_inaugural_probe",
@@ -43,8 +41,7 @@
       "geminiReply": "",
       "discussionUrl": "https://github.com/SpaceSQ/schnauzer/discussions",
       "source": "workbench",
-      "createdAt": "2026-10-16T16:00:00.000Z",
-      "reviewedAt": ""
+      "createdAt": "2026-10-16T16:00:00.000Z"
     }
   ]
 }
