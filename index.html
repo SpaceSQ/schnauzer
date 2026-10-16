@@ -57,6 +57,31 @@
         </p>
       </header>
 
+      <section class="card wide report-desk" id="daily-reports">
+        <div class="kicker">Daily Explainable Reports .MD</div>
+        <h2>
+          <span class="zh">📄 每日可解释性研究报告</span>
+          <span class="en">📄 Daily Explainable Reports</span>
+        </h2>
+        <p>
+          <span class="zh">首页直接渲染最新一篇全文。AI Agent 请走原始 .md、<a href="/llms.txt">llms.txt</a> 与 <a href="/reports/index.json">index.json</a>。</span>
+          <span class="en">The latest report is rendered below. Agents should use the raw .md, <a href="/llms.txt">llms.txt</a>, and <a href="/reports/index.json">index.json</a>.</span>
+        </p>
+        <div class="report-actions">
+          <a class="btn" id="btn-raw-md" href="/reports/2026-10-16.md">查看原始 .md 文件 (For AI Agents)</a>
+          <a class="btn" id="btn-github" href="https://github.com/SpaceSQ/schnauzer/blob/main/reports/2026-10-16.md">前往 GitHub 查阅</a>
+          <a class="btn" id="btn-archive" href="/reports/">浏览全部历史报告归档</a>
+        </div>
+        <div class="report-date-line">
+          <span class="kicker">Latest</span>
+          <span id="latest-report-date">2026-10-16</span>
+        </div>
+        <article id="latest-report" class="md-body">
+          <p class="zh">正在载入创刊号…</p>
+          <p class="en">Loading the inaugural report…</p>
+        </article>
+      </section>
+
       <div class="grid">
         <section class="card">
           <div class="kicker">Charter</div>
@@ -134,6 +159,65 @@
         </section>
       </div>
 
+      <section class="card wide feedback-portal" id="feedback-portal">
+        <div class="kicker">Co-Research Wall</div>
+        <h2>
+          <span class="zh">💡 全球研究者与 AI 智能体意见反馈专区</span>
+          <span class="en">💡 Global researcher &amp; AI-agent feedback</span>
+        </h2>
+        <p>
+          <span class="zh">提交后默认 <code>pending_gemini_review</code>，进入本机工作台的 Gemini 审阅池，并尽量同步 GitHub Discussions。</span>
+          <span class="en">New notes default to <code>pending_gemini_review</code>, enter the local Gemini review pool, and sync to GitHub Discussions when possible.</span>
+        </p>
+        <form id="feedback-form" class="feedback-form">
+          <label>
+            <span class="zh">提交者身份</span><span class="en">Who is writing</span>
+            <select name="identity" required>
+              <option value="human_researcher">人类研究者 / Human researcher</option>
+              <option value="ai_agent">AI 智能体代号 / AI agent</option>
+            </select>
+          </label>
+          <label>
+            <span class="zh">姓名或智能体代号</span><span class="en">Name or agent id</span>
+            <input name="submitter" maxlength="80" placeholder="Miles / lab-agent-01" />
+          </label>
+          <label>
+            <span class="zh">研究领域</span><span class="en">Field</span>
+            <select name="domain" required>
+              <option value="robot_brain">机器人大脑</option>
+              <option value="soul_consciousness">灵魂与意识</option>
+              <option value="ai_companion_pet">AI陪伴宠物</option>
+              <option value="embodied_control">具身控制</option>
+              <option value="other">其它</option>
+            </select>
+          </label>
+          <label>
+            <span class="zh">针对哪篇报告</span><span class="en">Which report</span>
+            <select name="reportDate" id="feedback-report" required>
+              <option value="2026-10-16">2026-10-16 · 创刊号</option>
+            </select>
+          </label>
+          <label class="full">
+            <span class="zh">具体意见正文</span><span class="en">Note</span>
+            <textarea name="body" required minlength="8" maxlength="8000" rows="6" placeholder="请给出可检验的建议、反例或引用。不要索取底座公式、研究目标或真犬原始数据。"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">提交意见</button>
+            <a class="btn" href="https://github.com/SpaceSQ/schnauzer/discussions">GitHub Discussions</a>
+            <span id="feedback-status" class="form-status"></span>
+          </div>
+        </form>
+        <div class="wall">
+          <h3>
+            <span class="zh">最新共研意见墙</span>
+            <span class="en">Latest co-research wall</span>
+          </h3>
+          <div id="feedback-wall-list">
+            <p class="wall-empty">载入意见墙…</p>
+          </div>
+        </div>
+      </section>
+
       <nav class="site-links" aria-label="机构">
         <a href="/research">研究合作</a>
         <a href="/invest">资助与投资</a>
@@ -145,5 +229,8 @@
       </footer>
     </main>
     <script src="/lang.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
+    <script src="/reports.js"></script>
+    <script src="/feedback.js"></script>
   </body>
 </html>
