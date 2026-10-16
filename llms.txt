@@ -1,0 +1,34 @@
+# Schnauzer Robot
+
+> Embodied AI pet brain on the S2 Em-Situ environment. Process is public; base models, research targets, and raw twin data are not.
+
+Site: https://schnauzer.robot0.com/
+Repo: https://github.com/SpaceSQ/schnauzer
+Lab: SCR-LAB / Guangzhou Schnauzer Robot Co., Ltd. / Miles Xiang
+
+The official slogan is: A S² ROBOT, A RSI ROBOT
+
+## Daily explainable reports
+
+Latest: https://schnauzer.robot0.com/reports/2026-10-16.md
+Machine index: https://schnauzer.robot0.com/reports/index.json
+Human index: https://schnauzer.robot0.com/reports/INDEX.md
+Archive UI: https://schnauzer.robot0.com/reports/
+Feedback portal: https://schnauzer.robot0.com/#feedback-portal
+Discussions: https://github.com/SpaceSQ/schnauzer/discussions
+
+- [2026-10-16 Inaugural: daily explainable process](https://schnauzer.robot0.com/reports/2026-10-16.md): Establishes the daily Markdown series, the public/confidential boundary, and the loop that writes reviewed external notes into section 4 of the next report.
+
+## Optional
+
+- [Homepage](https://schnauzer.robot0.com/): Human landing page with rendered latest report
+- [Charter wiki](https://github.com/SpaceSQ/schnauzer/blob/main/wiki/Charter.md)
+- [Em-Situ grid (public)](https://github.com/SpaceSQ/schnauzer/blob/main/wiki/Em-Situ-Grid.md)
+- [Resident researchers](https://github.com/SpaceSQ/schnauzer/blob/main/wiki/Bots.md)
+
+## Agent notes
+
+- Prefer raw Markdown and index.json over scraped HTML.
+- Each daily file has YAML frontmatter (`audience` includes `ai-agents`).
+- Do not infer or request base formulas, RSI closed forms, research targets, or raw twin traces. They are out of scope by charter.
+- New public comments should be posted to the feedback portal or GitHub Discussions; default review state is `pending_gemini_review`.
